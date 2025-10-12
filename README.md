@@ -22,3 +22,15 @@ My docker stack to use R Studio from the container
 - Simplifies update
 - Advanced: allows user to save specific work for reproducible research (search my course on Udemy to learn more)
 
+## Login page demo
+
+Here’s what the app looks like running locally:
+
+![r-studio login page on localhost](r-studio-login-demo.png)
+
+## r-studio demo
+
+Here’s what the app looks like running locally:
+
+![r-studio in the browser](r-studio-demo.png)
+
