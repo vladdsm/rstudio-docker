@@ -1,1 +1,6 @@
 data.table
+shinythemes
+imager
+jpeg
+plotly
+rgl
