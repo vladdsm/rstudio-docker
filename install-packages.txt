@@ -4,3 +4,9 @@ imager
 jpeg
 plotly
 rgl
+qrcode
+DT
+openxlsx
+shinydashboard
+TTR
+quantmod
