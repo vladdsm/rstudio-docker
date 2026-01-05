@@ -7,14 +7,15 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libxml2-dev \
     git \
-    && rm -rf /var/lib/apt/lists/*
+    libpoppler-cpp-dev \
+	&& rm -rf /var/lib/apt/lists/*
 
 # Copy the package list into the image
 COPY install-packages.txt /tmp/install-packages.txt
 
 # Install packages listed in install-packages.txt
 RUN R -e "pkgs <- scan('/tmp/install-packages.txt', what = character()); \
-          if (length(pkgs) > 0) install.packages(pkgs, repos='https://cloud.r-project.org')"
+          if (length(pkgs) > 0) install.packages(pkgs, repos='https://cloud.r-project.org', dependencies = TRUE)"
 
 # Ensure correct ownership for the rstudio user
 RUN chown -R rstudio:rstudio /home/rstudio

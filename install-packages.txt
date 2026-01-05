@@ -13,3 +13,5 @@ TTR
 quantmod
 FrF2
 pdftools
+kableExtra
+writexl
