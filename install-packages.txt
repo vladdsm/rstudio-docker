@@ -15,3 +15,5 @@ FrF2
 pdftools
 kableExtra
 writexl
+knitr
+tinytex
