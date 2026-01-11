@@ -12,10 +12,13 @@ RUN apt-get update && apt-get install -y \
 
 # Copy the package list into the image
 COPY install-packages.txt /tmp/install-packages.txt
+COPY install.R /tmp/install.R
 
 # Install packages listed in install-packages.txt
 RUN R -e "pkgs <- scan('/tmp/install-packages.txt', what = character()); \
           if (length(pkgs) > 0) install.packages(pkgs, repos='https://cloud.r-project.org', dependencies = TRUE)"
+
+RUN Rscript /tmp/install.R
 
 # Ensure correct ownership for the rstudio user
 RUN chown -R rstudio:rstudio /home/rstudio
