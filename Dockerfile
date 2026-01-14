@@ -8,7 +8,16 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     git \
     libpoppler-cpp-dev \
-	&& rm -rf /var/lib/apt/lists/*
+    libmagick++-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
+    libfreetype6-dev \
+    libpng-dev \
+    libtiff5-dev \
+    libjpeg-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the package list into the image
 COPY install-packages.txt /tmp/install-packages.txt
