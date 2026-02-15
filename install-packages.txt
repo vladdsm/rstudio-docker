@@ -17,3 +17,10 @@ pdftools
 kableExtra
 writexl
 dotenv
+RPostgreSQL
+text2vec
+sentimentr
+tm
+lsa
+visNetwork
+officer
