@@ -24,3 +24,6 @@ tm
 lsa
 visNetwork
 officer
+caret
+randomForest
+
