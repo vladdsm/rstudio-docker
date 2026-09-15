@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY install-packages.txt /tmp/install-packages.txt
+COPY install.R /tmp/install.R
 
 RUN R -e "pkgs <- scan('/tmp/install-packages.txt', what = character()); \
           if (length(pkgs) > 0) install.packages(pkgs, repos='https://cloud.r-project.org', dependencies = TRUE)"

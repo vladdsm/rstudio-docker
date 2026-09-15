@@ -10,6 +10,13 @@ My docker stack to use R Studio from the container
 5. Login to R Studio and work ...
 6. When finished working, close browser and 2x click on `close-r-studio.bat`
 
+## How to rebuild image
+
+1. Update needed R packages using the file install-packages.txt
+2. Open powershell, change directory to the repository
+3. execute command ./build.ps1
+4. Wait until the image is rebuild
+
 ## Details
 
 1. Windows Folder `{user}/Documents/GitHub` is already mapped and can be accessed from r-studio

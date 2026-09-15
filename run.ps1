@@ -40,6 +40,8 @@ docker run `
   --restart unless-stopped `
   $Tag
   
+docker network connect ppwr-net rstudio-local
+  
 # Compose URL
 $url = "http://localhost:$Port"
 

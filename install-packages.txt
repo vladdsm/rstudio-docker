@@ -1,3 +1,4 @@
+tinytex
 reshape2
 data.table
 shinythemes
