@@ -16,15 +16,5 @@ FrF2
 pdftools
 kableExtra
 writexl
-dotenv
-RPostgreSQL
-text2vec
-sentimentr
-tm
-lsa
-visNetwork
-officer
-caret
-randomForest
-leaflet
-bslib
+knitr
+tinytex

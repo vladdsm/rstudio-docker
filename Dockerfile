@@ -1,35 +1,27 @@
-# Start from Rocker's tidyverse image with RStudio
 FROM rocker/tidyverse:latest
 
-# Install system dependencies you might need
 RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
     git \
     libpoppler-cpp-dev \
-    libmagick++-dev \
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    libfreetype6-dev \
-    libpng-dev \
-    libtiff5-dev \
-    libjpeg-dev \
-    libharfbuzz-dev \
-    libfribidi-dev \
+    texlive-latex-base \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
+    texlive-latex-extra \
+    texlive-xetex \
+    lmodern \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the package list into the image
 COPY install-packages.txt /tmp/install-packages.txt
 COPY install.R /tmp/install.R
 
-# Install packages listed in install-packages.txt
 RUN R -e "pkgs <- scan('/tmp/install-packages.txt', what = character()); \
           if (length(pkgs) > 0) install.packages(pkgs, repos='https://cloud.r-project.org', dependencies = TRUE)"
 
-RUN Rscript /tmp/install.R
-
-# Ensure correct ownership for the rstudio user
 RUN chown -R rstudio:rstudio /home/rstudio
 
 EXPOSE 8787
+
+USER rstudio
