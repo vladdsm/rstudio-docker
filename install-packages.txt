@@ -18,3 +18,7 @@ kableExtra
 writexl
 knitr
 tinytex
+bsicons
+tidytext
+wordcloud2
+shinymanager
