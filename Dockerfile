@@ -1,6 +1,6 @@
-FROM rocker/tidyverse:latest
+FROM rocker/tidyverse:4.5.0
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
@@ -8,9 +8,7 @@ RUN apt-get update && apt-get install -y \
     libpoppler-cpp-dev \
     texlive-latex-base \
     texlive-fonts-recommended \
-    texlive-fonts-extra \
     texlive-latex-extra \
-    texlive-xetex \
     lmodern \
     && rm -rf /var/lib/apt/lists/*
 
@@ -20,8 +18,5 @@ COPY install.R /tmp/install.R
 RUN R -e "pkgs <- scan('/tmp/install-packages.txt', what = character()); \
           if (length(pkgs) > 0) install.packages(pkgs, repos='https://cloud.r-project.org', dependencies = TRUE)"
 
-RUN chown -R rstudio:rstudio /home/rstudio
-
 EXPOSE 8787
-
-USER rstudio
+# NOTE: do NOT add USER rstudio — the base image handles this in /init
