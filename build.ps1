@@ -1,5 +1,5 @@
 param(
-    [string]$Tag = "rstudio-local:latest"
+    [string]$Tag = "rstudio-local:4.5.0"
 )
 
 # Switch to repo root
